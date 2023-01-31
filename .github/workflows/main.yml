@@ -1,0 +1,33 @@
+name: croc build
+
+on:
+  push:
+    branches: [ 'main' ]
+  pull_request:
+    branches: [ 'main' ]
+  workflow_dispatch:
+
+jobs:
+
+  build_package_test_deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        
+    - name: Build
+      run: './build/build.ps1 -Configuration Release -BranchName ${{ github.ref_name }} -CommitSHA ${{ github.sha }} -PropertiesPath Directory.Build.props -UseBranchNameInPackageSuffixWhenNotSpecified'
+      working-directory: .
+      shell: pwsh
+
+    - name: Test
+      run: dotnet test ./test/HatTrick.CrockfordBase32.Tests/HatTrick.CrockfordBase32.Tests.csproj --configuration Release --framework net7.0 --no-build --logger "trx;LogFileName=tests.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Include="[HatTrick.CrockfordBase32.*]*" /p:Exclude="[*Test]*"
+            
+    - name: Push to NuGet
+      if: startsWith(github.ref_name, 'main')
+      run: nuget push **\HatTrick.CrockfordBase32**.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{ secrets.NUGET_API_KEY }} -SkipDuplicate
+

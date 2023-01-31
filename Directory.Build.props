@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<Project>
+  <PropertyGroup>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <PackageReleaseNotes>See release notes at https://github.com/HatTrickLabs/croc/releases/tag/v1.0.0</PackageReleaseNotes>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageIcon>images/htl-nuget-logo.png</PackageIcon>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <Company>HatTrick Labs, LLC</Company>
+    <Authors>gwgrubbs</Authors>
+    <Copyright>HatTrick Labs, LLC</Copyright>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <DebugType>embedded</DebugType>
+    <PackageProjectUrl>https://github.com/HatTrickLabs/croc</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/HatTrickLabs/croc</RepositoryUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../../build/htl-nuget-logo.png" Pack="true" Visible="false" PackagePath="images/htl-nuget-logo.png" />
+  </ItemGroup>
+</Project>

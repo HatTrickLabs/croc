@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <ToolCommandName>croc</ToolCommandName>
+        <PackAsTool>true</PackAsTool>
+        <IsPackable>true</IsPackable>
+        <DebugType>full</DebugType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\HatTrick.CrockfordBase32\HatTrick.CrockfordBase32.csproj" />
+    </ItemGroup>
+
+</Project>
