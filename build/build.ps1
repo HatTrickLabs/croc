@@ -5,7 +5,7 @@ param
     (
         # The full path (including name) to the solution to build
         [Parameter(ValueFromPipelineByPropertyName)]
-        [string]$SolutionPath = "croc.sln",
+        [string[]]$Projects = @("$(pwd)/src/HatTrick.CrockfordBase32/HatTrick.CrockfordBase32.csproj","$(pwd)/tool/HatTrick.CrockfordBase32.Tools/HatTrick.CrockfordBase32.Tools.csproj"),
 
         # The full path (including name) to the Directory.build.props file used as a template to provide the base version (Major.Minor.Patch) version used to create assembly attributes and nuget packages.  If the fiile contains a VersionSuffix, it will be honored as provided.
         [Parameter(ValueFromPipelineByPropertyName)]
@@ -108,6 +108,10 @@ Write-Host "Building solution" $SolutionPath
 dotnet build $SolutionPath --configuration $Configuration
 
 Write-Host "Creating NuGet packages for " $SolutionPath
-dotnet pack $SolutionPath --output $NuGetOutputPath --configuration $Configuration --no-build --include-symbols
+# dotnet pack $SolutionPath --output $NuGetOutputPath --configuration $Configuration --no-build --include-symbols
+foreach ($proj in $Projects)
+{
+	dotnet pack $proj -p:PackageOutputPath=$(pwd)/$NuGetOutputPath --configuration $Configuration --no-build --include-symbols
+}
 
 Write-Host "Build complete for" $SolutionPath
