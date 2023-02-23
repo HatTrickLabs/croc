@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.0.1</VersionPrefix>
-    <PackageReleaseNotes>See release notes at https://github.com/HatTrickLabs/croc/releases/tag/v1.0.1</PackageReleaseNotes>
+    <VersionPrefix>1.0.2</VersionPrefix>
+    <PackageReleaseNotes>See release notes at https://github.com/HatTrickLabs/croc/releases/tag/v1.0.2</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup>
     <PackageIcon>images/htl-nuget-logo.png</PackageIcon>

@@ -16,6 +16,8 @@
 // The latest version of this file can be found at https://github.com/HatTrickLabs/croc
 #endregion
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace HatTrick.CrockfordBase32;
 
 public static class CrockfordBase32Extensions
@@ -48,7 +50,7 @@ public static class CrockfordBase32Extensions
     /// <param name="value">The signed long value to convert.</param>
     /// <param name="result">A <see cref="ReadOnlyMemory{char}"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryToCrockfordBase32ReadOnlyMemory(this long value, out ReadOnlyMemory<char>? result)
+    public static bool TryToCrockfordBase32ReadOnlyMemory(this long value, [NotNullWhenAttribute(true)] out ReadOnlyMemory<char>? result)
         => CrockfordBase32.TryGetReadOnlyMemory(value, out result);
 
     /// <summary>
@@ -58,7 +60,7 @@ public static class CrockfordBase32Extensions
     /// <param name="useCheckSymbol">Indicates whether a computed check symbol is appended to the return value.</param>
     /// <param name="result">A <see cref="ReadOnlyMemory{char}"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryToCrockfordBase32ReadOnlyMemory(this long value, bool useCheckSymbol, out ReadOnlyMemory<char>? result)
+    public static bool TryToCrockfordBase32ReadOnlyMemory(this long value, bool useCheckSymbol, [NotNullWhenAttribute(true)] out ReadOnlyMemory<char>? result)
         => CrockfordBase32.TryGetReadOnlyMemory(value, useCheckSymbol, out result);
 
     /// <summary>
@@ -88,7 +90,7 @@ public static class CrockfordBase32Extensions
     /// <param name="value">The signed long value to convert.</param>
     /// <param name="result">A <see cref="Memory{char}"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryToCrockfordBase32Memory(this long value, out Memory<char>? result)
+    public static bool TryToCrockfordBase32Memory(this long value, [NotNullWhenAttribute(true)] out Memory<char>? result)
         => CrockfordBase32.TryGetMemory(value, out result);
 
     /// <summary>
@@ -98,7 +100,7 @@ public static class CrockfordBase32Extensions
     /// <param name="useCheckSymbol">Indicates whether a computed check symbol is appended to the return value.</param>
     /// <param name="result">A <see cref="Memory{char}"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryToCrockfordBase32Memory(this long value, bool useCheckSymbol, out Memory<char>? result)
+    public static bool TryToCrockfordBase32Memory(this long value, bool useCheckSymbol, [NotNullWhenAttribute(true)] out Memory<char>? result)
         => CrockfordBase32.TryGetMemory(value, useCheckSymbol, out result);
 
     /// <summary>
@@ -128,7 +130,7 @@ public static class CrockfordBase32Extensions
     /// <param name="value">The signed long value to convert.</param>
     /// <param name="result">A <see cref="char"/>[] containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryToCrockfordBase32CharArray(this long value, out char[]? result)
+    public static bool TryToCrockfordBase32CharArray(this long value, [NotNullWhenAttribute(true)] out char[]? result)
         => CrockfordBase32.TryGetCharArray(value, out result);
 
     /// <summary>
@@ -138,7 +140,7 @@ public static class CrockfordBase32Extensions
     /// <param name="useCheckSymbol">Indicates whether a computed check symbol is appended to the return value.</param>
     /// <param name="result">A <see cref="char"/>[] containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryToCrockfordBase32CharArray(this long value, bool useCheckSymbol, out char[]? result)
+    public static bool TryToCrockfordBase32CharArray(this long value, bool useCheckSymbol, [NotNullWhenAttribute(true)] out char[]? result)
         => CrockfordBase32.TryGetCharArray(value, useCheckSymbol, out result);
 
     /// <summary>
@@ -168,7 +170,7 @@ public static class CrockfordBase32Extensions
     /// <param name="value">The signed long value to convert.</param>
     /// <param name="result">A <see cref="byte"/>[] containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryToCrockfordBase32ByteArray(this long value, out  byte[]? result)
+    public static bool TryToCrockfordBase32ByteArray(this long value, [NotNullWhenAttribute(true)] out byte[]? result)
         => CrockfordBase32.TryGetByteArray(value, out result);
 
     /// <summary>
@@ -178,7 +180,7 @@ public static class CrockfordBase32Extensions
     /// <param name="useCheckSymbol">Indicates whether a computed check symbol is appended to the return value.</param>
     /// <param name="result">A <see cref="byte"/>[] containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryToCrockfordBase32ByteArray(this long value, bool useCheckSymbol, out  byte[]? result)
+    public static bool TryToCrockfordBase32ByteArray(this long value, bool useCheckSymbol, [NotNullWhenAttribute(true)] out byte[]? result)
         => CrockfordBase32.TryGetByteArray(value, useCheckSymbol, out result);
 
     /// <summary>
@@ -218,7 +220,7 @@ public static class CrockfordBase32Extensions
     /// <param name="useCheckSymbol">Indicates whether a computed check symbol is appended to the return value.</param>
     /// <param name="result">A <see cref="string"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryToCrockfordBase32String(this long value, bool useCheckSymbol, out string? result)
+    public static bool TryToCrockfordBase32String(this long value, bool useCheckSymbol, [NotNullWhenAttribute(true)] out string? result)
         => CrockfordBase32.TryGetString(value, useCheckSymbol, out result);
     #endregion
 
@@ -231,7 +233,7 @@ public static class CrockfordBase32Extensions
     /// <exception cref="ArgumentException">Thrown when <paramref name="value"/> is is empty.</exception>
     /// <exception cref="InvalidDataException">Thrown when the <see cref="ReadOnlyMemory{char}"/> <paramref name="value"/> cannot be decoded.  Typically, the 
     /// value contains a symbol that is not a subset of the valid symbols for Crockford Base 32 (i.e. an extended ASCII charater).</exception>
-    public static long FromCrockfordBase32ReadOnlyMemory(this ReadOnlyMemory<char> value)
+    public static long FromCrockfordBase32ReadOnlyMemory([DisallowNull] this ReadOnlyMemory<char> value)
         => CrockfordBase32.GetInt64(value);
 
     /// <summary>
@@ -244,7 +246,7 @@ public static class CrockfordBase32Extensions
     /// <exception cref="InvalidDataException">Thrown when the <see cref="ReadOnlyMemory{char}"/> <paramref name="value"/> cannot be decoded.  Typically, the 
     /// value contains a symbol that is not a subset of the valid symbols for Crockford Base 32 (i.e. an extended ASCII charater) or the computed check symbol indicates
     /// wrong or transposed symbols.</exception>
-    public static long FromCrockfordBase32ReadOnlyMemory(this ReadOnlyMemory<char> value, bool hasCheckSymbol)
+    public static long FromCrockfordBase32ReadOnlyMemory([DisallowNull] this ReadOnlyMemory<char> value, bool hasCheckSymbol)
         => CrockfordBase32.GetInt64(value, hasCheckSymbol);
 
     /// <summary>
@@ -253,7 +255,7 @@ public static class CrockfordBase32Extensions
     /// <param name="value">The <see cref="ReadOnlyMemory{char}"/> value to convert to a signed long value.</param>
     /// <param name="result">A <see cref="long"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryFromCrockfordBase32ReadOnlyMemory(this ReadOnlyMemory<char> value, out long? result)
+    public static bool TryFromCrockfordBase32ReadOnlyMemory([DisallowNull] this ReadOnlyMemory<char> value, [NotNullWhenAttribute(true)] out long? result)
         => CrockfordBase32.TryGetInt64(value, out result);
 
     /// <summary>
@@ -263,7 +265,7 @@ public static class CrockfordBase32Extensions
     /// <param name="hasCheckSymbol">Indicates whether the <paramref name="value"/> includes a computed check symbol as the last symbol.</param>
     /// <param name="result">A <see cref="long"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryFromCrockfordBase32ReadOnlyMemory(this ReadOnlyMemory<char> value, bool hasCheckSymbol, out long? result)
+    public static bool TryFromCrockfordBase32ReadOnlyMemory([DisallowNull] this ReadOnlyMemory<char> value, bool hasCheckSymbol, [NotNullWhenAttribute(true)] out long? result)
         => CrockfordBase32.TryGetInt64(value, hasCheckSymbol, out result);
 
     /// <summary>
@@ -273,7 +275,7 @@ public static class CrockfordBase32Extensions
     /// <returns>A signed <see cref="long"/> value from the conversion of the <paramref name="value"/>.</returns>
     /// <exception cref="InvalidDataException">Thrown when the <see cref="Memory{char}"/> <paramref name="value"/> cannot be decoded.  Typically, the 
     /// value contains a symbol that is not a subset of the valid symbols for Crockford Base 32 (i.e. an extended ASCII charater).</exception>
-    public static long FromCrockfordBase32Memory(this Memory<char> value)
+    public static long FromCrockfordBase32Memory([DisallowNull] this Memory<char> value)
         => CrockfordBase32.GetInt64(value);
 
     /// <summary>
@@ -285,7 +287,7 @@ public static class CrockfordBase32Extensions
     /// <exception cref="InvalidDataException">Thrown when the <see cref="Memory{char}"/> <paramref name="value"/> cannot be decoded.  Typically, the 
     /// value contains a symbol that is not a subset of the valid symbols for Crockford Base 32 (i.e. an extended ASCII charater) or the computed check symbol indicates
     /// wrong or transposed symbols.</exception>
-    public static long FromCrockfordBase32Memory(this Memory<char> value, bool hasCheckSymbol)
+    public static long FromCrockfordBase32Memory([DisallowNull] this Memory<char> value, bool hasCheckSymbol)
         => CrockfordBase32.GetInt64(value, hasCheckSymbol);
 
     /// <summary>
@@ -294,7 +296,7 @@ public static class CrockfordBase32Extensions
     /// <param name="value">The <see cref="Memory{char}"/> value to convert to a signed long value.</param>
     /// <param name="result">A <see cref="long"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryFromCrockfordBase32Memory(this Memory<char> value, out long? result)
+    public static bool TryFromCrockfordBase32Memory([DisallowNull] this Memory<char> value, [NotNullWhenAttribute(true)] out long? result)
         => CrockfordBase32.TryGetInt64(value, out result);
 
     /// <summary>
@@ -304,7 +306,7 @@ public static class CrockfordBase32Extensions
     /// <param name="hasCheckSymbol">Indicates whether the <paramref name="value"/> includes a computed check symbol as the last symbol.</param>
     /// <param name="result">A <see cref="long"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryFromCrockfordBase32Memory(this Memory<char> value, bool hasCheckSymbol, out long? result)
+    public static bool TryFromCrockfordBase32Memory([DisallowNull] this Memory<char> value, bool hasCheckSymbol, [NotNullWhenAttribute(true)] out long? result)
         => CrockfordBase32.TryGetInt64(value, hasCheckSymbol, out result);
 
     /// <summary>
@@ -314,7 +316,7 @@ public static class CrockfordBase32Extensions
     /// <returns>A signed <see cref="long"/> value from the conversion of the <paramref name="value"/>.</returns>
     /// <exception cref="InvalidDataException">Thrown when the <see cref="char"/>[] <paramref name="value"/> cannot be decoded.  Typically, the 
     /// value contains a symbol that is not a subset of the valid symbols for Crockford Base 32 (i.e. an extended ASCII charater).</exception>
-    public static long FromCrockfordBase32CharArray(this char[] value)
+    public static long FromCrockfordBase32CharArray([DisallowNull] this char[] value)
         => CrockfordBase32.GetInt64(value);
 
     /// <summary>
@@ -326,7 +328,7 @@ public static class CrockfordBase32Extensions
     /// <exception cref="InvalidDataException">Thrown when the <see cref="ReadOnlyMemory{char}"/> <paramref name="value"/> cannot be decoded.  Typically, the 
     /// value contains a symbol that is not a subset of the valid symbols for Crockford Base 32 (i.e. an extended ASCII charater) or the computed check symbol indicates
     /// wrong or transposed symbols.</exception>
-    public static long FromCrockfordBase32CharArray(this char[] value, bool hasCheckSymbol)
+    public static long FromCrockfordBase32CharArray([DisallowNull] this char[] value, bool hasCheckSymbol)
         => CrockfordBase32.GetInt64(value, hasCheckSymbol);
 
     /// <summary>
@@ -335,7 +337,7 @@ public static class CrockfordBase32Extensions
     /// <param name="value">The <see cref="char"/>[] value to convert to a signed long value.</param>
     /// <param name="result">A <see cref="long"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryFromCrockfordBase32CharArray(this char[] value, out long? result)
+    public static bool TryFromCrockfordBase32CharArray([DisallowNull] this char[] value, [NotNullWhenAttribute(true)] out long? result)
         => CrockfordBase32.TryGetInt64(value, out result);
 
     /// <summary>
@@ -345,7 +347,7 @@ public static class CrockfordBase32Extensions
     /// <param name="hasCheckSymbol">Indicates whether the <paramref name="value"/> includes a computed check symbol as the last symbol.</param>
     /// <param name="result">A <see cref="long"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryFromCrockfordBase32CharArray(this char[] value, bool hasCheckSymbol, out long? result)
+    public static bool TryFromCrockfordBase32CharArray([DisallowNull] this char[] value, bool hasCheckSymbol, [NotNullWhenAttribute(true)] out long? result)
         => CrockfordBase32.TryGetInt64(value, hasCheckSymbol, out result);
 
     /// <summary>
@@ -355,7 +357,7 @@ public static class CrockfordBase32Extensions
     /// <returns>A signed <see cref="long"/> value from the conversion of the <paramref name="value"/>.</returns>
     /// <exception cref="InvalidDataException">Thrown when the <see cref="byte"/>[] <paramref name="value"/> cannot be decoded.  Typically, the 
     /// value contains a symbol that is not a subset of the valid symbols for Crockford Base 32 (i.e. an extended ASCII charater).</exception>
-    public static long FromCrockfordBase32ByteArray(this  byte[] value)
+    public static long FromCrockfordBase32ByteArray([DisallowNull] this byte[] value)
         => CrockfordBase32.GetInt64(value);
 
     /// <summary>
@@ -367,7 +369,7 @@ public static class CrockfordBase32Extensions
     /// <exception cref="InvalidDataException">Thrown when the <see cref="ReadOnlyMemory{char}"/> <paramref name="value"/> cannot be decoded.  Typically, the 
     /// value contains a symbol that is not a subset of the valid symbols for Crockford Base 32 (i.e. an extended ASCII charater) or the computed check symbol indicates
     /// wrong or transposed symbols.</exception>
-    public static long FromCrockfordBase32ByteArray(this  byte[] value, bool hasCheckSymbol)
+    public static long FromCrockfordBase32ByteArray([DisallowNull] this byte[] value, bool hasCheckSymbol)
         => CrockfordBase32.GetInt64(value, hasCheckSymbol);
 
     /// <summary>
@@ -376,7 +378,7 @@ public static class CrockfordBase32Extensions
     /// <param name="value">The <see cref="byte"/>[] value to convert to a signed long value.</param>
     /// <param name="result">A <see cref="long"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryFromCrockfordBase32ByteArray(this  byte[] value, out long? result)
+    public static bool TryFromCrockfordBase32ByteArray([DisallowNull] this byte[] value, [NotNullWhenAttribute(true)] out long? result)
         => CrockfordBase32.TryGetInt64(value, out result);
 
     /// <summary>
@@ -386,7 +388,7 @@ public static class CrockfordBase32Extensions
     /// <param name="hasCheckSymbol">Indicates whether the <paramref name="value"/> includes a computed check symbol as the last symbol.</param>
     /// <param name="result">A <see cref="long"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryFromCrockfordBase32ByteArray(this  byte[] value, bool hasCheckSymbol, out long? result)
+    public static bool TryFromCrockfordBase32ByteArray([DisallowNull] this byte[] value, bool hasCheckSymbol, [NotNullWhenAttribute(true)] out long? result)
         => CrockfordBase32.TryGetInt64(value, hasCheckSymbol, out result);
 
     /// <summary>
@@ -396,7 +398,7 @@ public static class CrockfordBase32Extensions
     /// <returns>A signed <see cref="long"/> value from the conversion of the <paramref name="value"/>.</returns>
     /// <exception cref="InvalidDataException">Thrown when the <see cref="string"/> <paramref name="value"/> cannot be decoded.  Typically, the 
     /// value contains a symbol that is not a subset of the valid symbols for Crockford Base 32 (i.e. an extended ASCII charater).</exception>
-    public static long FromCrockfordBase32String(this string value)
+    public static long FromCrockfordBase32String([DisallowNull] this string value)
         => CrockfordBase32.GetInt64(value);
 
     /// <summary>
@@ -408,7 +410,7 @@ public static class CrockfordBase32Extensions
     /// <exception cref="InvalidDataException">Thrown when the <see cref="ReadOnlyMemory{char}"/> <paramref name="value"/> cannot be decoded.  Typically, the 
     /// value contains a symbol that is not a subset of the valid symbols for Crockford Base 32 (i.e. an extended ASCII charater) or the computed check symbol indicates
     /// wrong or transposed symbols.</exception>
-    public static long FromCrockfordBase32String(this string value, bool hasCheckSymbol)
+    public static long FromCrockfordBase32String([DisallowNull] this string value, bool hasCheckSymbol)
         => CrockfordBase32.GetInt64(value, hasCheckSymbol);
 
     /// <summary>
@@ -417,7 +419,7 @@ public static class CrockfordBase32Extensions
     /// <param name="value">The <see cref="string"/> value to convert to a signed long value.</param>
     /// <param name="result">A <see cref="long"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryFromCrockfordBase32String(this string value, out long? result)
+    public static bool TryFromCrockfordBase32String([DisallowNull] this string value, [NotNullWhenAttribute(true)] out long? result)
         => CrockfordBase32.TryGetInt64(value, out result);
 
     /// <summary>
@@ -427,7 +429,7 @@ public static class CrockfordBase32Extensions
     /// <param name="hasCheckSymbol">Indicates whether the <paramref name="value"/> includes a computed check symbol as the last symbol.</param>
     /// <param name="result">A <see cref="long"/> containing the converted symbols if the conversion was successful.</param>
     /// <returns>A <see cref="bool"/> indicating success (true) or failure (false) of the conversion.</returns>
-    public static bool TryFromCrockfordBase32String(this string value, bool hasCheckSymbol, out long? result)
+    public static bool TryFromCrockfordBase32String([DisallowNull] this string value, bool hasCheckSymbol, [NotNullWhenAttribute(true)] out long? result)
         => CrockfordBase32.TryGetInt64(value, hasCheckSymbol, out result);
     #endregion
 }
