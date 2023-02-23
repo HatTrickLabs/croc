@@ -1,5 +1,3 @@
-using HatTrick.CrockfordBase32;
-using Newtonsoft.Json.Linq;
 using System.Buffers;
 
 namespace HatTrick.CrockfordBase32.Tests;

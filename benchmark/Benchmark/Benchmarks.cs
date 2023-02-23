@@ -15,7 +15,7 @@ public class Benchmarks
             => $"{Value}:{EncodedWithCheckSymbol[..^1]}[{EncodedWithCheckSymbol[^1..]}]";
     }
 
-    public static List<BenchmarkParameter> BenchmarkParameters => new List<BenchmarkParameter>()
+    public static List<BenchmarkParameter> BenchmarkParameters => new()
     {
         // ReSharper disable StringLiteralTypo
         new(0L,"0", "00"),
